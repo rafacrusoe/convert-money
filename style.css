@@ -132,12 +132,10 @@ button:active {
 
 /* Isso seleciona todas as imagens (img) que estão DENTRO da caixa (.currency-box) */
 .currency-box img {
-    width: 40px;
-    /* Define uma largura fixa */
-    height: 40px;
-    /* Define uma altura fixa para formar um quadrado */
-    object-fit: contain;
-    /* MÁGICA: Isso impede que a imagem fique "achatada" ou distorcida se ela não for perfeitamente quadrada */
+    width: 48px;
+    height: 48px;
+    border-radius: 50%; /* Transforma o quadrado em um círculo perfeito */
+    box-shadow: 0px 2px 4px rgba(0,0,0,0.15);
 }
 
 .arrow{
