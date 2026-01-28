@@ -2,6 +2,7 @@
 const convertButton = document.querySelector("button") // Seleciona o botão
 const currencySelectMain = document.querySelector(".currency-select-main") // Select DE (Esquerda)
 const currencySelect = document.querySelector(".currency-select") // Select PARA (Direita)
+const inputCurrency = document.querySelector(".input-currency")
 
  async function converter() {
     const inputCurrencyValue = document.querySelector(".input-currency").value
@@ -123,7 +124,14 @@ function changeCurrency() {
     converter()
 }
 
+function checkEnter(event){
+    if (event.key === "Enter"){
+        converter()
+    }
+}
+
 // EVENTOS (Onde a mágica acontece)
 currencySelectMain.addEventListener("change", changeCurrency) // Quando troca o select de cima
 currencySelect.addEventListener("change", changeCurrency) // Quando troca o select de baixo
 convertButton.addEventListener("click", converter) // Quando clica no botão
+inputCurrency.addEventListener("keypress", checkEnter)
