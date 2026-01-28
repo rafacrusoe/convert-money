@@ -3,16 +3,17 @@ const convertButton = document.querySelector("button") // Seleciona o botão
 const currencySelectMain = document.querySelector(".currency-select-main") // Select DE (Esquerda)
 const currencySelect = document.querySelector(".currency-select") // Select PARA (Direita)
 
-function converter() {
+ async function converter() {
     const inputCurrencyValue = document.querySelector(".input-currency").value
     const currencyValueToConvert = document.getElementById("value-to-convert") // Texto valor esquerda
     const currencyValueConverted = document.getElementById("value-converted") // Texto valor direita
 
-    // COTAÇÕES (Valores fictícios)
-    const dolarToday = 5.2
-    const euroToday = 6.2
-    const libraToday = 7.2
-    const ieneToday = 0.034
+    const data = await fetch("https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,GBP-BRL,JPY-BRL").then(response => response.json())
+
+    const dolarToday = data.USDBRL.high
+    const euroToday = data.EURBRL.high
+    const libraToday = data.GBPBRL.high
+    const ieneToday = data.JPYBRL.high
     const realToday = 1
 
     // 1. Descobrir a cotação da moeda de ORIGEM
